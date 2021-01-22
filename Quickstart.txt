@@ -16,7 +16,9 @@
 
 6. In /research/training edit labelmap.pbtxt to contain relevant image labels (to match with those assigned in generate_tfrecord.py).
 7. Find config of desired model from /research/object_detection/configs/tf2 and copy into /research/training
+    - Ensure previous config is removed
 8. Download model from tf2 object detection model zoo.
     - Extract model twice and copy outputted folder into /research/object_detection
+    - Ensure previous model folder is removed
 9. Edit model config
 10. Train
