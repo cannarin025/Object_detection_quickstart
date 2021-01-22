@@ -1,0 +1,22 @@
+1. Use protoc to get dependancies.
+    - Get updated version of protobuf if relevant
+    - Ensure protoc.exe is in /research
+    - Execute from within /research: python use_protobuf.py object_detection/protos protoc
+        - i.e. python use_protobuf.py <path to protos directory> <path to protoc file>
+
+2. Put images in research/object_detection/images/train  and  /test directories.
+3. Label images.
+4. From within /research/object_detection run xml_to_csv.py to convert image labels to csv files.
+5. Open generate_tfrecord.py in object_detection and edit the class_text_to_int function to set numeric labels.
+5. From within /research/object_detection run the following:
+    - python generate_tfrecord.py --csv_input=images/train_labels.csv --image_dir=images/train --output_path=train.record
+    - python generate_tfrecord.py --csv_input=images/test_labels.csv --image_dir=images/test --output_path=test.record
+
+    - This generates tfrecord files for the labels using the previously generated CSVs.
+
+6. In /research/training edit labelmap.pbtxt to contain relevant image labels (to match with those assigned in generate_tfrecord.py).
+7. Find config of desired model from /research/object_detection/configs/tf2 and copy into /research/training
+8. Download model from tf2 object detection model zoo.
+    - Extract model twice and copy outputted folder into /research/object_detection
+9. Edit model config
+10. Train
