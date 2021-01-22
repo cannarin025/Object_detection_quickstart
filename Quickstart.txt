@@ -3,6 +3,8 @@
     - Ensure protoc.exe is in /research
     - Execute from within /research: python use_protobuf.py object_detection/protos protoc
         - i.e. python use_protobuf.py <path to protos directory> <path to protoc file>
+    - Copy over setup.py from object_detection/packages/tf2/setup.py into /research
+    - Execute python -m pip install . from /research
 
 2. Put images in research/object_detection/images/train  and  /test directories.
 3. Label images.
